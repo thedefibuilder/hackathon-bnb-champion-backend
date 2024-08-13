@@ -1,29 +1,14 @@
-import { Router } from 'express';
+import { Router } from "express";
 
-import Paths from '../common/Paths';
-import UserRoutes from './UserRoutes';
-
-
-// **** Variables **** //
+import Paths from "../common/Paths";
+import GreenfieldRoutes from "./GreenfieldRoutes";
 
 const apiRouter = Router();
 
+const greenfieldRouter = Router();
 
-// ** Add UserRouter ** //
+greenfieldRouter.use(Paths.Greenfield.Deploy, GreenfieldRoutes.deploy);
 
-// Init router
-const userRouter = Router();
-
-// Get all users
-userRouter.get(Paths.Users.Get, UserRoutes.getAll);
-userRouter.post(Paths.Users.Add, UserRoutes.add);
-userRouter.put(Paths.Users.Update, UserRoutes.update);
-userRouter.delete(Paths.Users.Delete, UserRoutes.delete);
-
-// Add UserRouter
-apiRouter.use(Paths.Users.Base, userRouter);
-
-
-// **** Export default **** //
+apiRouter.use(Paths.Greenfield.Base, greenfieldRouter);
 
 export default apiRouter;
