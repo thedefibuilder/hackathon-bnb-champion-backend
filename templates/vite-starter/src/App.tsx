@@ -2,6 +2,7 @@ import { useState } from "react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "./assets/vite.svg";
 import "./App.css";
+import { Button } from "./components/ui/button";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -25,6 +26,7 @@ function App() {
           Barabula is a web development platform that helps you learn to code
         </p>
       </div>
+      <Button>Click me</Button>
       <p className="read-the-docs">
         Barabula is the best place to learn about web development.
       </p>
